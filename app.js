@@ -16,7 +16,8 @@ var commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index")
 
 //seedDB();
-mongoose.connect("mongodb://localhost/rave_on");
+mongoose.connect("mongodb://vikram:kalta@ds119738.mlab.com:19738/psychedelic");
+//mongodb://vikram:kalta@ds119738.mlab.com:19738/psychedelic
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
