@@ -15,12 +15,17 @@ router.get("/", function(req, res){
 router.post("/", middleware.isLoggedIn, function(req, res){
     var name = req.body.name;
     var image = req.body.image;
+    var location = req.body.location;
     var desc = req.body.description;
+    var date = req.body.date;
+    var contactForPass = req.body.contactForPass;
+    var entry = req.body.entry;
+    var lineup = req.body.lineup;
     var author = {
         id: req.user._id,
         username: req.user.username
     }
-    var newRave = {name: name, image: image, description: desc, author:author};
+    var newRave = {name: name, image: image, location: location, description: desc, author:author,date: date,contactForPass: contactForPass, entry: entry, lineup: lineup};
     Rave.create(newRave, function(err, newlyCreated){
        if(err){
            console.log(err)
