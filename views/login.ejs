@@ -1,0 +1,16 @@
+<% include ./partials/header %>
+<div class= "container">
+<div class= "jumbotron">
+<div class= "center">
+<h1>Login</h1>
+
+<form action="/login" method="POST">
+    <div><label>Username: <input type="text" name="username" placeholder="username"></label></div>
+    <div><label>Password: <input type="password" name="password" placeholder="password"></label></div>
+    <input type="submit" value="Login">
+    <div>If you are not registered click here<a href="/register"> Sign-Up</a></div>
+</form>
+</div>
+</div>
+</div>
+<% include ./partials/footer %>

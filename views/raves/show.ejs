@@ -1,0 +1,61 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead"><h1 style=color:blue;><strong>Psy-Mafia</strong></h1></p>
+            <div class="list-group">
+                <li class="list-group-item"><a href="/raves/<%=rave._id%>">Info</a>
+                <li class="list-group-item"><a href="/raves/<%=rave._id%>">Click Here For More Info</a>
+                
+            </div>
+            </div>
+           
+              <div class="col-md-9">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="<%= rave.image%>">
+                    <div class="caption-full">
+                        <h4 class="pull-right"><%= rave.entry%></h4>
+                        <h4><a><%= rave.name %></a></h4>
+                        <p><p><strong>Will Blast At <%= rave.location %></strong></p></p>
+                        <p><p><strong>Dates:</strong> <%=rave.date%></p></p>
+                        <p><p><strong>Contact For Passes:</strong> <a><%=rave.contactForPass%></a></p></p>
+                        <p><p><strong><%= rave.description %></strong></p></p>
+                        <p><strong><em>Submitted By <%= rave.author.username %></em></strong></p>
+                        <p><p><strong>Line-Up:</strong> <%= rave.lineup %></p></p>
+                        
+                        <% if(currentUser && rave.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-xs btn-warning" href="/raves/<%= rave._id %>/edit">Edit</a>
+                        <form id="delete-form" action="/raves/<%= rave._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="well">
+                    <div class="text-right">
+                         <a class="btn btn-success" href="/raves/<%= rave._id %>/comments/new">Add New Comment</a>
+                    </div>
+                    <hr>
+                    <% rave.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                            <span class="pull-right"><%= comment.date.toDateString() %></span>
+                            <p><%= comment.text %></p>
+                             <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-xs btn-warning" href="/raves/<%=rave._id%>/comments/<%=comment._id%>/edit">Edit</a>
+                            <form id="delete-form" action="/raves/<%=rave._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                            <% } %>
+                        </div>
+                    </div>
+                   
+                     <% }) %>
+                  </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

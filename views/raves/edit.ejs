@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+<div class="container">
+<div class="row">
+<h1 style="text-align: center;">Edit <%= rave.name %></h1>
+<div style="width: 30%; margin: 25px auto;">
+<form action="/raves/<%= rave._id %>?_method=PUT" method="POST">
+    <div class="form-group">
+        <input class="form-control" type="text" name="rave[name]" value="<%= rave.name %>">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="rave[image]" value="<%= rave.image %>">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="rave[location]" value="<%= rave.location %>">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="rave[date]" value="<%= rave.date %>">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="rave[contactForPass]" value="<%= rave.contactForPass %>">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="rave[description]" value="<%= rave.description %>">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="rave[entry]" value="<%= rave.entry %>">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" type="text" name="rave[lineup]" value="<%= rave.lineup %>"></textarea>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-large btn-primary btn-block">Submit</button>
+    </div>
+    
+</form>
+<a href="/raves">Go back</a>
+</div>
+
+</div>
+</div>
+<% include ../partials/footer %>

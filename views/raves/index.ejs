@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+<div class="jumbotron">
+    <div class="center">
+    <div class="container">
+    <h1>Welcome to Raver's Paradise</h1>
+    <p>Join our wesbsite and get all the updates of the parties from all over the world!</p>
+    <p>
+    <a class="btn btn-primary btn-large" href="/raves/new">Add new rave event</a>
+    </p>
+    </div>
+</div>
+</div>
+
+<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+<% raves.forEach(function(rave){ %>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+            <img src="<%= rave.image %>">
+            <div class="caption">
+                <h4><%= rave.name %></h4>
+            </div>
+            <p>
+                <a href="/raves/<%= rave._id%>"class="btn btn-primary">More Info</a>
+            </p>
+            
+        </div>
+        
+    </div>
+<% }); %>
+</div>
+</div>
+
+
+<% include ../partials/footer %>
