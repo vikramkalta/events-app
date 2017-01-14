@@ -16,9 +16,10 @@
 
 <div class="row text-center" style="display:flex; flex-wrap: wrap;">
 <% raves.forEach(function(rave){ %>
+
     <div class="col-md-3 col-sm-6">
         <div class="thumbnail">
-            <img src="<%= rave.image %>">
+            <img class="img-responsive" src="<%= rave.image %>">
             <div class="caption">
                 <h4><%= rave.name %></h4>
             </div>
@@ -27,8 +28,8 @@
             </p>
             
         </div>
-        
-    </div>
+        </div>
+    
 <% }); %>
 </div>
 </div>

@@ -1,5 +1,6 @@
 .thumbnail img{
-    width: 100%;
+    height: 400px;
+    width: 200%;
 }
 .thumbnail {
     padding: 0;
