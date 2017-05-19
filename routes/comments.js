@@ -37,7 +37,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
       }
   });
 });  
-
+// comment edit route
 router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
     Comment.findById(req.params.comment_id, function(err, foundComment){
         if(err){
